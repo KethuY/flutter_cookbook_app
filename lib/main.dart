@@ -16,7 +16,28 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.lightBlue[800],
         accentColor: Colors.cyan[600],
       ),
-      home: new MyHomeScreen(),
+     // home: new MyHomeScreen(),
+      home: new DefaultTabController(
+          length: 3,
+          child: new Scaffold(
+            appBar: new AppBar(
+              title: new Text("Tabs demo"),
+              bottom: new TabBar(tabs: [
+                new Tab(icon: new Icon(Icons.directions_car),text:"Car",),
+                new Tab(icon: new Icon(Icons.directions_transit),text:"Bus",),
+                new Tab(icon: new Icon(Icons.directions_bike),text:"Bike",),
+              ]),
+
+            ),
+            body: new TabBarView(
+                children:[
+              new Icon(Icons.directions_car),
+              new Icon(Icons.directions_transit),
+              new Icon(Icons.directions_bike),
+            ]
+            ),
+          )
+      ),
     );
   }
 }
